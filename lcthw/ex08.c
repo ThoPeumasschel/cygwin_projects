@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
             printf("%s ", argv[i]);
         }
         printf("\n");
-    } else if (argc > 10) {
+    } else {
         printf("You have too many arguments. You suck.\n");
     }
 

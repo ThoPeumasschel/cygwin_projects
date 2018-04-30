@@ -13,7 +13,8 @@ struct Person {
 struct Person *Person_create(char *name, int age, int height, int weight)
 {
 	struct Person *who = malloc(sizeof(struct Person));
-
+	printf("Print sizeof(struct Person): %ld bytes\n", sizeof(struct Person));
+	printf("location of who: %p\n", who);
 	assert(who != NULL);
 
 	who->name = strdup(name);
@@ -47,12 +48,17 @@ int main(int argc, char *argv[])
 
 	struct Person *frank = Person_create("Frank Blank", 20, 72, 180);
 
+	struct Person *thomas = Person_create("Thomas Peuschel", 37, 186, 90);
+
 	// print them out and where they are in memory
-	printf("Joe is at memory location %p: \n", joe);
+	printf("Joe is at memory location: %p \n", joe);
 	Person_print(joe);
 
-	printf("Frank is at memory location %p: \n", frank);
+	printf("Frank is at memory location: %p \n", frank);
 	Person_print(frank);
+
+	printf("Thomas is at memory location: %p\n", thomas);
+	Person_print(thomas);
 	
 	// make eryone age 20 years and print the again
 	joe->age += 20;
@@ -67,6 +73,7 @@ int main(int argc, char *argv[])
 	// destroy them both so we clean up
 	Person_destroy(joe);
 	Person_destroy(frank);
+	Person_destroy(thomas);
 
 	return 0;
 }

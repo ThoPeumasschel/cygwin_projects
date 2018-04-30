@@ -6,7 +6,7 @@
 
 #define MAX_DATA 512
 #define MAX_ROWS 100
-
+                  
 struct Address {
 	int id;
 	int set;
@@ -108,8 +108,7 @@ void Database_create(struct Connection * conn)
 	}
 }
 
-void Database_set(struct Connection *conn, int id, const char *name, 
-				const char *email) 
+void Database_set(struct Connection *conn, int id, const char *name, const char *email) 
 {
 	struct Address *addr = &conn->db->rows[id];
 	if (addr->set)

@@ -19,6 +19,5 @@ int main(void) {
 		printf("Differenz der beiden Zeiger : %d Bytes\n",diff);
 		printf("%s",ptr1);  /* Welt */
 		printf("%s",ptr2);  /* Hallo Welt */
-		//return EXIT_SUCCESS;
-
+		return EXIT_SUCCESS;
 }

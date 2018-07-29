@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include<assert.h>
+//#include<assert.h>
 #include<stdlib.h>
 #include<errno.h>
 #include<string.h>
@@ -39,14 +39,14 @@ void Address_print(struct Address *addr)
 	printf("%d %s %s\n", addr->id, addr->name, addr->email);
 }
 
-void Database_load(struct Connection * conn)
+void Database_load(struct Connection *conn)
 {
 		int rc = fread(conn->db, sizeof(struct Database), 1, conn->file);
-		if (rc!=1)
+		if (rc != 1)
 			die("Failed to load Database");
 }
 
-struct Connection *Database_open(const char*filename, char mode) 
+struct Connection *Database_open(const char *filename, char mode) 
 {
 	struct Connection *conn = malloc(sizeof(struct Connection));
 	if (!conn)
@@ -121,7 +121,7 @@ void Database_set(struct Connection *conn, int id, const char *name, const char 
 	if (!res) 
 		die("Name copy failed");
 
-	res = strncpy(addr->name, name, MAX_DATA);
+	res = strncpy(addr->email, email, MAX_DATA);
 	if (!res)
 		die("Email copy failed");
 }
